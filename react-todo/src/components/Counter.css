@@ -1,0 +1,6 @@
+.counter {
+    display: inline-block;
+    width: 33%;
+    text-align: left;
+    font-weight: bold;
+}
