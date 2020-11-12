@@ -1,0 +1,17 @@
+<div class="todo-list">
+  <mat-card>
+    <form (submit)="onSubmit($event)">
+      <mat-form-field>
+        <mat-label>Todo name</mat-label>
+        <input type="text" name="new-todo" matInput placeholder="Do something" [(ngModel)]="todoName">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Add</button>
+    </form>
+    <ul class="todo-list-items">
+      <li *ngFor="let todo of todos">
+        <mat-checkbox [checked]="todo.checked" (change)="onCheck(todo.id)">{{ todo.name }}</mat-checkbox>
+        <button mat-raised-button (click)="onRemove(todo.id)" >Remove</button>
+      </li>
+    </ul>
+  </mat-card>
+</div>

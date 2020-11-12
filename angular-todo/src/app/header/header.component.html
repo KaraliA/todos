@@ -1,0 +1,10 @@
+<mat-toolbar class="toolbar" color="primary">
+  <span>TODO App</span>
+  <mat-icon
+    [matBadgeHidden]="!uncheckedNumber"
+    matBadge="{{uncheckedNumber}}"
+    matBadgeColor="warn"
+  >
+    message
+  </mat-icon>
+</mat-toolbar>
