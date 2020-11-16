@@ -8,13 +8,12 @@
 <script>
 export default {
   name: 'Counter',
-  props: ['list'],
   computed: {
     toDo: function () {
-      return this.list.filter(item => !item.done).length;
+      return this.$store.getters.toDoItems;
     },
     done: function () {
-      return this.list.filter(item => item.done).length;
+      return this.$store.getters.doneItems;
     }
   },
   methods: {
@@ -29,6 +28,8 @@ export default {
 .counter {
   display: inline-block;
   width: 33%;
+  margin-top: 2%;
+  margin-left: 10%;
   text-align: left;
   font-weight: bold;
 }

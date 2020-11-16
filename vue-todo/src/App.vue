@@ -1,30 +1,40 @@
 <template>
-  <div id="app">
-    <ToDo />
-  </div>
+  <!-- <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    
+  </div> -->
+  <v-app>
+    <v-app-bar app>
+      <Counter />
+    </v-app-bar>
+    <v-main>
+      <router-view />
+    </v-main>
+</v-app>
 </template>
 
 <script>
-import ToDo from './components/ToDo.vue'
+import Counter from './components/Counter';
 
 export default {
   name: 'App',
   components: {
-    ToDo
+    Counter
   }
 }
 </script>
-
-<style>
-body {
-  background: #f5f5f5;
-}
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+header {
+  height: 80px !important;
 }
 </style>
