@@ -18,7 +18,9 @@
           <v-checkbox v-model="item.done"></v-checkbox>
         </v-list-item-action>
         <v-list-item-content>
-          <v-list-item-title v-text="item.text"></v-list-item-title>
+          <router-link :to="`/todo/${item.id}`">
+            <v-list-item-title v-text="item.text"></v-list-item-title>
+          </router-link>
         </v-list-item-content>
         <v-list-item-action>
           <v-icon v-text="'$remove'" @click="removeToDo(item)">
@@ -48,7 +50,6 @@ export default {
       this.$store.dispatch('clearToDoList');
     },
     removeToDo(item) {
-      console.log(item)
       this.$store.dispatch('removeToDo', item);
     }
   }

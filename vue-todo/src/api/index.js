@@ -2,7 +2,8 @@ let _toDoList = [
     {
         id: Math.floor(Math.random()*Date.now()),
         text: 'wake up',
-        done: false
+        done: false,
+        createdAt: new Date()
     }
 ];
 
@@ -14,7 +15,8 @@ export default {
         _toDoList.push({
             id: Math.floor(Math.random()*Date.now()),
             text: itemText,
-            done: false
+            done: false,
+            createdAt: new Date()
         });
         setTimeout(() => cb(), 100);
     },

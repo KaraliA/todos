@@ -1,7 +1,5 @@
 <template>
   <div class="todo-container">
-    <img src="../assets/logo.png" class="logo"/>
-    <h1>To Do List</h1>
     <div class="todo-input">
       <v-text-field
         label="I need to..."
@@ -51,12 +49,9 @@ export default {
 </script>
 
 <style scoped>
-.logo {
-  width: 100px;
-}
 .todo-container {
   width: 40%;
-  margin: 5% auto;
+  margin: 2% auto;
 }
 .todo-input {
   display: inline-flex;

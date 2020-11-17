@@ -23,6 +23,9 @@ export default new Vuex.Store({
     },
     areThereDoneItems: (state, getters) => {
       return getters.doneItems > 0;
+    },
+    getToDoItem: (state) => (id) => {
+      return state.toDoList.find(item => item.id == id);
     }
   },
   mutations: {

@@ -1,16 +1,11 @@
 <template>
-  <!-- <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    
-  </div> -->
   <v-app>
     <v-app-bar app>
       <Counter />
     </v-app-bar>
-    <v-main>
+    <v-main style="margin-top: 5%;">
+      <img src="./assets/logo.png" class="logo"/>
+      <h1>To Do List</h1>
       <router-view />
     </v-main>
 </v-app>
@@ -36,5 +31,8 @@ export default {
 }
 header {
   height: 80px !important;
+}
+.logo {
+  width: 100px;
 }
 </style>
