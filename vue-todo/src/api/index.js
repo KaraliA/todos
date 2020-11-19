@@ -6,30 +6,38 @@ let _toDoList = [
         createdAt: new Date()
     }
 ];
+const promise = value => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(value);
+        }, 500);
+    });
+}
 
 export default {
-    getToDoList(cb) {
-        setTimeout(() => cb(_toDoList), 100);
+    getToDoList() {
+        return promise(_toDoList);
     },
-    addToDoItem(itemText, cb) {
-        _toDoList.push({
+    addToDoItem(itemText) {
+        const item = {
             id: Math.floor(Math.random()*Date.now()),
             text: itemText,
             done: false,
             createdAt: new Date()
-        });
-        setTimeout(() => cb(), 100);
+        }
+        _toDoList.push(item);
+        return promise(item);
     },
-    removeToDoItem(item, cb) {
+    removeToDoItem(item) {
         _toDoList.splice(_toDoList.indexOf(item), 1);
-        setTimeout(() => cb(), 100);
+        return promise(item);
     },
-    clearToDoList(cb) {
+    clearToDoList() {
         _toDoList = [];
-        setTimeout(() => cb(), 100);
+        return promise(_toDoList);
     },
-    removeDoneItems(cb) {
+    removeDoneItems() {
         _toDoList = _toDoList.filter(item => !item.done);
-        setTimeout(() => cb(), 100);
+        return promise(_toDoList);
     }
 }

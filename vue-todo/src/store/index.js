@@ -34,28 +34,21 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    getToDoList ({ commit }) {
-      api.getToDoList((list) => {
-        commit('setToDoList', list);
-      });
+    async getToDoList ({ commit }) {
+      const list = await api.getToDoList();
+      commit('setToDoList', list);
     },
-    addToDoItem: ({ dispatch }, itemText) => {
-      api.addToDoItem(
-        itemText,
-        () => dispatch('getToDoList')
-      );
+    async addToDoItem ({ dispatch }, itemText) {
+      await api.addToDoItem(itemText) && dispatch('getToDoList');
     },
-    removeToDo: ({ dispatch }, item) => {
-      api.removeToDoItem(
-        item,
-        () => dispatch('getToDoList')
-      );
+    async removeToDo ({ dispatch }, item) {
+      await api.removeToDoItem(item) && dispatch('getToDoList');
     },
-    clearToDoList: ({ dispatch }) => {
-      api.clearToDoList(() => dispatch('getToDoList'));
+    async clearToDoList ({ dispatch }) {
+      await api.clearToDoList() && dispatch('getToDoList');
     },
-    removeDoneItems: ({ dispatch }) => {
-      api.removeDoneItems(() => dispatch('getToDoList'));
+    async removeDoneItems ({ dispatch }) {
+      await api.removeDoneItems() && dispatch('getToDoList');
     }
   },
   modules: {
