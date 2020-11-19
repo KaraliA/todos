@@ -1,21 +1,24 @@
 <template>
   <div class="todo-container">
-    <div class="todo-input">
+    <v-form
+      class="todo-form"
+      @submit.prevent="createNewToDoItem"
+    >
       <v-text-field
         label="I need to..."
-        v-model="todo"
-        v-on:keyup.enter="createNewToDoItem"
-        hide-details="auto"
+        v-model="form.todo"
+        :error-messages="todoErrors"
         color="#41b883"
       ></v-text-field>
-      <v-btn class="todo-add" @click="createNewToDoItem">+</v-btn>
-    </div>
+      <v-btn class="todo-add" type="submit">+</v-btn>
+    </v-form>
     <ToDoList v-if="!isListEmpty"/>
   </div>
 </template>
 
 <script>
 import ToDoList from '../components/ToDoList';
+import { required, maxLength } from "vuelidate/lib/validators";
 
 export default {
   name: 'ToDo',
@@ -24,22 +27,38 @@ export default {
   },
   data() {
     return {
-      todo: ''
+      form: {
+        todo: ''
+      }
+    }
+  },
+  validations: {
+    form: {
+      todo: { required, maxLength: maxLength(20) }
     }
   },
   computed: {
     isListEmpty: function () {
       return this.$store.getters.isListEmpty;
+    },
+    todoErrors: function () {
+      const errors = []
+      if (!this.$v.form.todo.$dirty) return errors;
+
+      !this.$v.form.todo.maxLength && errors.push(`Maximum length is ${this.$v.form.todo.$params.maxLength.max}.`);
+      !this.$v.form.todo.required && errors.push('Field is required.');
+      return errors;
     }
   },
   methods: {
     createNewToDoItem() {
-      if (!this.todo || !this.todo.trim()) {
-        return;
-      }
+      this.$v.form.$touch();
+      if(this.$v.form.$error) return;
 
-      this.$store.dispatch('addToDoItem', this.todo);
-      this.todo = '';
+      this.$store.dispatch('addToDoItem', this.form.todo);
+
+      this.$v.form.$reset();
+      this.form.todo = '';
     }
   },
   created() {
@@ -48,20 +67,22 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .todo-container {
   width: 40%;
   margin: 2% auto;
-}
-.todo-input {
-  display: inline-flex;
-  width: 70%;
-}
-.todo-add {
-  margin-top: 0.5em;
-  min-width: 30px !important;
-  width: 40px;
-  color: #2c3e50;
-  font-size: 24px;
+
+  .todo-form {
+    display: inline-flex;
+    width: 70%;
+
+    .todo-add {
+      margin-top: 0.5em;
+      min-width: 30px !important;
+      width: 40px;
+      color: #2c3e50;
+      font-size: 24px;
+    }
+  }
 }
 </style>
