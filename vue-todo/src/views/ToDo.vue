@@ -5,10 +5,9 @@
       @submit.prevent="createNewToDoItem"
     >
       <v-text-field
-        label="I need to..."
+        :label="$t('toDoPlaceholder')"
         v-model="form.todo"
         :error-messages="todoErrors"
-        color="#41b883"
       ></v-text-field>
       <v-btn class="todo-add" type="submit">+</v-btn>
     </v-form>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Item doesn't exist</p>
+    <p>{{ $t('itemNotExists') }}</p>
   </div>
 </template>
 

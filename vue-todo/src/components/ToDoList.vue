@@ -5,9 +5,14 @@
       :disabled="!areThereDoneItems"
       @click="removeDoneItems"
     >
-      Remove done
+      {{ $t('removeDoneBtn') }}
     </v-btn>
-    <v-btn class="action-btn" @click="clearToDoList">Clear all</v-btn>
+    <v-btn
+      class="action-btn"
+      @click="clearToDoList"
+    >
+      {{ $t('clearAllBtn') }}
+    </v-btn>
     <v-list style="width: 100%; background: #D2EEE1;">
       <v-list-item
         class="todo-item"

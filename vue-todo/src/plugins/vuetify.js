@@ -10,5 +10,16 @@ export default new Vuetify({
         values: {
             remove: 'mdi-trash-can'
         }
+    },
+    theme: {
+        themes: {
+            light: {
+                primary: '#41b883',
+                secondary: '#b0bec5',
+                accent: '#8c9eff',
+                error: '#b71c1c',
+                anchor: '#8c9eff'
+            }
+        }
     }
 });

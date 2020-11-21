@@ -1,7 +1,7 @@
 <template>
   <div class="counter">
-    <p>To do: {{ toDo }} {{pluralize(toDo)}}</p>
-    <p>Done: {{ done }} {{pluralize(done)}}</p>
+    <p>{{ $t('toDoCounter') }}: {{ toDo }}</p>
+    <p>{{ $t('doneCounter') }}: {{ done }}</p>
   </div>
 </template>
 
@@ -15,11 +15,6 @@ export default {
     done: function () {
       return this.$store.getters.doneItems;
     }
-  },
-  methods: {
-    pluralize: (length) => {
-      return length === 1 ? "item" : "items";
-    }
   }
 }
 </script>
@@ -27,9 +22,8 @@ export default {
 <style scoped>
 .counter {
   display: inline-block;
-  width: 33%;
-  margin-top: 2%;
-  margin-left: 10%;
+  width: 10%;
+  margin-left: 5%;
   text-align: left;
   font-weight: bold;
 }

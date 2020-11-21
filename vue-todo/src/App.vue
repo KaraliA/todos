@@ -2,10 +2,17 @@
   <v-app>
     <v-app-bar app>
       <Counter />
+      <v-select
+        v-model="$i18n.locale"
+        :items="locales"
+        item-text="title"
+        item-value="locale"
+        class="lang-select"
+      />
     </v-app-bar>
     <v-main style="margin-top: 5%;">
       <img src="./assets/logo.png" class="logo"/>
-      <h1>To Do List</h1>
+      <h1>{{ $t('toDoList') }}</h1>
       <router-view />
     </v-main>
 </v-app>
@@ -18,7 +25,8 @@ export default {
   name: 'App',
   components: {
     Counter
-  }
+  },
+  props: ['locales']
 }
 </script>
 <style lang="scss">
@@ -31,6 +39,11 @@ export default {
 }
 header {
   height: 80px !important;
+  padding-top: 1%;
+
+  .lang-select {
+    max-width: 10%;
+  }
 }
 .logo {
   width: 100px;

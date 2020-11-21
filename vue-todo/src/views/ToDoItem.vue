@@ -1,7 +1,7 @@
 <template>
   <div class="item-container">
-    <p>Task: {{ item.text }}</p>
-    <p>Created at: {{ item.createdAt.toLocaleTimeString() }}</p>
+    <p>{{ $t('taskName') }}: {{ item.text }}</p>
+    <p>{{ $t('createdAt') }}: {{ item.createdAt.toLocaleTimeString() }}</p>
   </div>
 </template>
 
