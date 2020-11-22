@@ -8,7 +8,8 @@ export default new Vuetify({
     icons: {
         iconfont: 'mdi',
         values: {
-            remove: 'mdi-trash-can'
+            remove: 'mdi-trash-can',
+            add: 'mdi-plus'
         }
     },
     theme: {

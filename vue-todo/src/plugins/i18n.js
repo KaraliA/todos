@@ -14,7 +14,11 @@ const messages = {
         clearAllBtn: "Clear all",
         taskName: "Task",
         createdAt: "Created at",
-        itemNotExists: "Item doesn't exist"
+        itemNotExists: "Item doesn't exist",
+        validationErrors: {
+            requiredMessage: 'Field is required.',
+            maxLengthMessage: 'Maximum length is'
+        }
     },
     ua: {
         localeTitle: "Українська",
@@ -26,7 +30,11 @@ const messages = {
         clearAllBtn: "Видалити всі",
         taskName: "Завдання",
         createdAt: "Створено о",
-        itemNotExists: "Завдання не існує"
+        itemNotExists: "Завдання не існує",
+        validationErrors: {
+            requiredMessage: 'Поле обов’язкове.',
+            maxLengthMessage: 'Максимальна довжина'
+        }
     }
 };
 

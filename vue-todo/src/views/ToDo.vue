@@ -9,7 +9,9 @@
         v-model="form.todo"
         :error-messages="todoErrors"
       ></v-text-field>
-      <v-btn class="todo-add" type="submit">+</v-btn>
+      <v-btn class="todo-add" type="submit">
+        <v-icon v-text="'$add'" />
+      </v-btn>
     </v-form>
     <ToDoList v-if="!isListEmpty"/>
   </div>
@@ -43,9 +45,9 @@ export default {
     todoErrors: function () {
       const errors = []
       if (!this.$v.form.todo.$dirty) return errors;
-
-      !this.$v.form.todo.maxLength && errors.push(`Maximum length is ${this.$v.form.todo.$params.maxLength.max}.`);
-      !this.$v.form.todo.required && errors.push('Field is required.');
+      
+      !this.$v.form.todo.maxLength && errors.push(`${this.$t('validationErrors.maxLengthMessage')} ${this.$v.form.todo.$params.maxLength.max}.`);
+      !this.$v.form.todo.required && errors.push(this.$t('validationErrors.requiredMessage'));
       return errors;
     }
   },
@@ -76,11 +78,10 @@ export default {
     width: 70%;
 
     .todo-add {
-      margin-top: 0.5em;
+      margin-top: 0.8em;
       min-width: 30px !important;
       width: 40px;
       color: #2c3e50;
-      font-size: 24px;
     }
   }
 }
