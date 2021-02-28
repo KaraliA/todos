@@ -1,0 +1,16 @@
+{
+  "localeTitle": "English",
+  "toDoList": "To Do List",
+  "toDoCounter": "To do",
+  "doneCounter": "Done",
+  "toDoPlaceholder": "I need to...",
+  "removeDoneBtn": "Remove done",
+  "clearAllBtn": "Clear all",
+  "taskName": "Task",
+  "createdAt": "Created at",
+  "itemNotExists": "Item doesn't exist",
+  "validationErrors": {
+    "requiredMessage": "Field is required.",
+    "maxLengthMessage": "Maximum length is"
+  }
+}

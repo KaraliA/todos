@@ -4,7 +4,7 @@ import vuetify from './plugins/vuetify';
 import store from './store'
 import router from './router'
 import Vuelidate from 'vuelidate'
-import { i18n, locales } from './plugins/i18n';
+import i18n, { locales } from './i18n'
 
 Vue.config.productionTip = false
 Vue.use(Vuelidate)

@@ -1,0 +1,16 @@
+{
+  "localeTitle": "Українська",
+  "toDoList": "Список завдань",
+  "toDoCounter": "Виконати",
+  "doneCounter": "Виконано",
+  "toDoPlaceholder": "Мені потрібно...",
+  "removeDoneBtn": "Видалити виконані",
+  "clearAllBtn": "Видалити всі",
+  "taskName": "Завдання",
+  "createdAt": "Створено о",
+  "itemNotExists": "Завдання не існує",
+  "validationErrors": {
+    "requiredMessage": "Поле обов’язкове.",
+    "maxLengthMessage": "Максимальна довжина"
+  }
+}
